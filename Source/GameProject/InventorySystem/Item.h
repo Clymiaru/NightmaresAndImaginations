@@ -3,34 +3,47 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "InventoryComponent.h"
-#include "UObject/NoExportTypes.h"
 
+#include <Components/BoxComponent.h>
+
+#include "GameFramework/Actor.h"
+#include "Engine/TriggerBox.h"
 #include "Item.generated.h"
 
-/**
- * 
- */
-UCLASS(Abstract, BlueprintType, Blueprintable, EditInlineNew, DefaultToInstanced)
-class GAMEPROJECT_API UItem : public UObject
+UCLASS()
+class GAMEPROJECT_API AItem : public AActor
 {
 	GENERATED_BODY()
-public:
-	UItem();
+	
+public:	
+	// Sets default values for this actor's properties
+	AItem();
 
-	//ItemData Properties;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
-	FString Name;
+	FText UseActionText;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
+	FText Name;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item", meta = (MultiLine = true))
-	FString Description;
+	FText Description;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	UTexture2D* Icon;
 
-	UPROPERTY()
-	UInventoryComponent* OwningInventory;
+	UPROPERTY(EditAnywhere)
+	AActor* Player;
 
-	UFUNCTION(BlueprintImplementableEvent)
-	void OnUse(AActor* Character);
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+private:
+	UBoxComponent* PickupVolume;
+
+	
 };

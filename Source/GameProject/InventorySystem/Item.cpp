@@ -3,11 +3,36 @@
 
 #include "Item.h"
 
-UItem::UItem() :
-	Name(TEXT("Unnamed")),
-	Description{TEXT("Sample Description")},
-	Icon(nullptr)
+// Sets default values
+AItem::AItem()
 {
+ 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+
+}
+
+// Called when the game starts or when spawned
+void AItem::BeginPlay()
+{
+	Super::BeginPlay();
+
+	PickupVolume = FindComponentByClass<UBoxComponent>();
+
 	
+	if (PickupVolume == nullptr)
+	{
+		UE_LOG(LogTemp, Display, TEXT("NO PICKUP"));
+	}
+}
+
+// Called every frame
+void AItem::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	if (PickupVolume->IsOverlappingActor(Player))
+	{
+		UE_LOG(LogTemp, Display, TEXT("IN RANGE"));
+	}
 }
 

@@ -1,8 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "InventoryComponent.h"
-#include "Item.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
@@ -14,45 +12,43 @@ UInventoryComponent::UInventoryComponent()
 	// ...
 }
 
-
 // Called when the game starts
 void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
 	// ...
-	for (auto& item : DefaultItems)
-	{
-		AddItem(item);
-	}
+	// for (auto& item : DefaultItems)
+	// {
+	// 	AddItem(item);
+	// }
 }
 
-bool UInventoryComponent::AddItem(UItem* item)
-{
-	if (Items.Num() >= Capacity || item == nullptr)
-	{
-		return false;
-	}
-	
-	Items.Add(item);
+// bool UInventoryComponent::AddItem(UItem *item)
+// {
+// 	if (Items.Num() >= Capacity || item == nullptr)
+// 	{
+// 		return false;
+// 	}
 
-	item->OwningInventory = this;
+// 	Items.Add(item);
 
-	OnInventoryUpdated.Broadcast();
+// 	item->OwningInventory = this;
 
-	return true;
-}
+// 	OnInventoryUpdated.Broadcast();
 
-bool UInventoryComponent::RemoveItem(UItem* item)
-{
-	if (item == nullptr)
-	{
-		return false;
-	}
+// 	return true;
+// }
 
-	item->OwningInventory = nullptr;
-	Items.RemoveSingle(item);
-	OnInventoryUpdated.Broadcast();
-	return true;
-}
+// bool UInventoryComponent::RemoveItem(UItem *item)
+// {
+// 	if (item == nullptr)
+// 	{
+// 		return false;
+// 	}
 
+// 	item->OwningInventory = nullptr;
+// 	Items.RemoveSingle(item);
+// 	OnInventoryUpdated.Broadcast();
+// 	return true;
+// }

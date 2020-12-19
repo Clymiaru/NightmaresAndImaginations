@@ -5,18 +5,19 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 
-class UItem;
+class AItem;
 
 #include "InventoryComponent.generated.h"
 
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdated);
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class GAMEPROJECT_API UInventoryComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	UInventoryComponent();
 
@@ -24,19 +25,19 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	bool AddItem(UItem* item);
-	bool RemoveItem(UItem* item);
+public:
+	// bool AddItem(UItem* item);
+	// bool RemoveItem(UItem* item);
 
-	UPROPERTY(EditDefaultsOnly, Instanced)
-		TArray<UItem*> DefaultItems;
+	// UPROPERTY(EditDefaultsOnly, Instanced)
+	// 	TArray<UItem*> DefaultItems;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Inventory")
-		int32 Capacity;
+	// UPROPERTY(EditDefaultsOnly, Category = "Inventory")
+	// 	int32 Capacity;
 
-	UPROPERTY(BlueprintAssignable, Category = "Inventory")
-		FOnInventoryUpdated OnInventoryUpdated;
+	// UPROPERTY(BlueprintAssignable, Category = "Inventory")
+	// 	FOnInventoryUpdated OnInventoryUpdated;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Items")
-		TArray<UItem*> Items;
+	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Items")
+	// 	TArray<UItem*> Items;
 };
