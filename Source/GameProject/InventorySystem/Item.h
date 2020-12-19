@@ -7,8 +7,10 @@
 #include <Components/BoxComponent.h>
 
 #include "GameFramework/Actor.h"
-#include "Engine/TriggerBox.h"
+#include "InventoryComponent.h"
+
 #include "Item.generated.h"
+
 
 UCLASS()
 class GAMEPROJECT_API AItem : public AActor
@@ -33,6 +35,8 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	AActor* Player;
+
+	UInventoryComponent* storedInInventory;
 
 protected:
 	// Called when the game starts or when spawned

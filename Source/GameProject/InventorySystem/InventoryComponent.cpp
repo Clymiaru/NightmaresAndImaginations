@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "InventoryComponent.h"
+#include "Item.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
@@ -18,37 +19,37 @@ void UInventoryComponent::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
-	// for (auto& item : DefaultItems)
-	// {
-	// 	AddItem(item);
-	// }
+	for (auto& item : DefaultItems)
+	{
+		AddItem(item);
+	}
 }
 
-// bool UInventoryComponent::AddItem(UItem *item)
-// {
-// 	if (Items.Num() >= Capacity || item == nullptr)
-// 	{
-// 		return false;
-// 	}
+ bool UInventoryComponent::AddItem(AItem *item)
+ {
+ 	if (Items.Num() >= Capacity || item == nullptr)
+ 	{
+ 		return false;
+ 	}
 
-// 	Items.Add(item);
+ 	Items.Add(item);
 
-// 	item->OwningInventory = this;
+ 	item->storedInInventory = this;
 
-// 	OnInventoryUpdated.Broadcast();
+ 	OnInventoryUpdated.Broadcast();
 
-// 	return true;
-// }
+ 	return true;
+}
 
-// bool UInventoryComponent::RemoveItem(UItem *item)
-// {
-// 	if (item == nullptr)
-// 	{
-// 		return false;
-// 	}
+bool UInventoryComponent::RemoveItem(AItem *item)
+ {
+ 	if (item == nullptr)
+ 	{
+ 		return false;
+ 	}
 
-// 	item->OwningInventory = nullptr;
-// 	Items.RemoveSingle(item);
-// 	OnInventoryUpdated.Broadcast();
-// 	return true;
-// }
+ 	item->storedInInventory = nullptr;
+ 	Items.RemoveSingle(item);
+ 	OnInventoryUpdated.Broadcast();
+    return true;
+}

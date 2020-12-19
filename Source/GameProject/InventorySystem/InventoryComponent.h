@@ -26,18 +26,18 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	// bool AddItem(UItem* item);
-	// bool RemoveItem(UItem* item);
+	bool AddItem(AItem* item);
+	bool RemoveItem(AItem* item);
 
-	// UPROPERTY(EditDefaultsOnly, Instanced)
-	// 	TArray<UItem*> DefaultItems;
+	UPROPERTY(EditAnywhere, Category = "Inventory")
+	TArray<AItem*> DefaultItems;
 
-	// UPROPERTY(EditDefaultsOnly, Category = "Inventory")
-	// 	int32 Capacity;
+	UPROPERTY(EditDefaultsOnly, Category = "Inventory")
+	int32 Capacity;
 
-	// UPROPERTY(BlueprintAssignable, Category = "Inventory")
-	// 	FOnInventoryUpdated OnInventoryUpdated;
+	UPROPERTY(BlueprintAssignable, Category = "Inventory")
+	FOnInventoryUpdated OnInventoryUpdated;
 
-	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Items")
-	// 	TArray<UItem*> Items;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Items")
+	TArray<AItem*> Items;
 };
