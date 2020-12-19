@@ -33,6 +33,12 @@ void AItem::Tick(float DeltaTime)
 	if (PickupVolume->IsOverlappingActor(Player))
 	{
 		UE_LOG(LogTemp, Display, TEXT("IN RANGE"));
+		Disappear();
 	}
+}
+
+void AItem::Disappear()
+{
+	Destroy();
 }
 

@@ -49,5 +49,7 @@ public:
 private:
 	UBoxComponent* PickupVolume;
 
+	void Disappear();
+
 	
 };
