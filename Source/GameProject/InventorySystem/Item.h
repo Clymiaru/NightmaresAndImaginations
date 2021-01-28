@@ -16,8 +16,8 @@ UCLASS()
 class GAMEPROJECT_API AItem : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AItem();
 
@@ -39,11 +39,9 @@ public:
 	UInventoryComponent* storedInInventory;
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
+public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
@@ -51,5 +49,5 @@ private:
 
 	void Disappear();
 
-	
+
 };

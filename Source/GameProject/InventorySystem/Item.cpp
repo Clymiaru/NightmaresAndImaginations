@@ -3,22 +3,18 @@
 
 #include "Item.h"
 
-// Sets default values
 AItem::AItem()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
-// Called when the game starts or when spawned
 void AItem::BeginPlay()
 {
 	Super::BeginPlay();
 
 	PickupVolume = FindComponentByClass<UBoxComponent>();
 
-	
+
 	if (PickupVolume == nullptr)
 	{
 		UE_LOG(LogTemp, Display, TEXT("NO PICKUP"));
