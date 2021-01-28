@@ -3,27 +3,23 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
-#include <Components/BoxComponent.h>
-
 #include "GameFramework/Actor.h"
 #include "InventoryComponent.h"
 
-#include "Item.generated.h"
-
+#include "EquippableItem.generated.h"
 
 UCLASS()
-class GAMEPROJECT_API AItem : public AActor
+class GAMEPROJECT_API AEquippableItem : public AActor
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this actor's properties
-	AItem();
+	AEquippableItem();
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
-	FText UseActionText;
+protected:
+	virtual void BeginPlay() override;
 
+public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	FText Name;
 
@@ -33,21 +29,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	UTexture2D* Icon;
 
-	UPROPERTY(EditAnywhere)
-	AActor* Player;
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnEquip();
 
-	UInventoryComponent* storedInInventory;
+	UFUNCTION(BlueprintCallable)
+    void Equip(UInventoryComponent* inventory);
 
-protected:
-	virtual void BeginPlay() override;
-
-public:
-	virtual void Tick(float DeltaTime) override;
-
-private:
-	UBoxComponent* PickupVolume;
-
-	void Disappear();
-
+	virtual void Tick(float deltaTime) override;
 
 };
