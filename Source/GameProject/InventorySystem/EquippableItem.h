@@ -8,6 +8,13 @@
 
 #include "EquippableItem.generated.h"
 
+UENUM()
+enum class EquipmentType
+{
+	Weapon,
+    Armor
+};
+
 UCLASS()
 class GAMEPROJECT_API AEquippableItem : public AActor
 {
@@ -20,6 +27,8 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	FText Name;
 
@@ -29,6 +38,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	UTexture2D* Icon;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
+	EquipmentType Type;
+
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnEquip();
 
@@ -36,5 +48,4 @@ public:
     void Equip(UInventoryComponent* inventory);
 
 	virtual void Tick(float deltaTime) override;
-
 };

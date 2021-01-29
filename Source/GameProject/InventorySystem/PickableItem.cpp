@@ -5,7 +5,7 @@
 
 APickableItem::APickableItem()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 }
 
 void APickableItem::BeginPlay()
