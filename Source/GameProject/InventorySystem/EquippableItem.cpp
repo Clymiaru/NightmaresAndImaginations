@@ -5,7 +5,7 @@
 
 AEquippableItem::AEquippableItem()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 }
 
 void AEquippableItem::BeginPlay()
