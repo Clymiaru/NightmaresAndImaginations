@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "MainPlayerController.generated.h"
 
+
 /**
  * 
  */
@@ -16,9 +17,9 @@ class GAMEPROJECT_API AMainPlayerController : public APlayerController
 protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float deltaTime) override;
-	UPROPERTY(BlueprintReadWrite) AActor* actorCopy;
+	
 	UPROPERTY(BlueprintReadWrite) bool attacking;
-	//UPROPERTY(BlueprintCallable) void TakeDamage(float damage);
+
 private:
 	void OnAttack();
 	void OnTimerEnd();

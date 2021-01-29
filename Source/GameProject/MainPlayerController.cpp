@@ -9,6 +9,7 @@ void AMainPlayerController::BeginPlay()
 
 	UInputComponent* inputComponent = this->FindComponentByClass<UInputComponent>();
 	inputComponent->BindAction("Attack", EInputEvent::IE_Pressed, this, &AMainPlayerController::OnAttack);
+
 }
 
 
@@ -17,6 +18,8 @@ void AMainPlayerController::Tick(float deltaTime)
 {
 	Super::Tick(deltaTime);
 }
+
+
 
 
 void AMainPlayerController::OnAttack()
