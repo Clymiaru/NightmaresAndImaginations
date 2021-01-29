@@ -9,6 +9,7 @@
 UCLASS()
 class GAMEPROJECT_API APickableItem : public AActor
 {
+private:
 	GENERATED_BODY()
 
 public:
