@@ -58,6 +58,14 @@ void UCharacterStatsComponent::TakeDamage(AActor* DamagedActor, float Damage, co
 	this->currHp = FMath::Clamp(this->currHp - Damage, 0.f, this->charMaxHp);
 }
 
+UFUNCTION(BlueprintCallable) void UCharacterStatsComponent::HealCharacter(float healAmount)
+{
+	//return UFUNCTION(BlueprintCallable) void();
+
+	this->currHp = FMath::Clamp(this->currHp + healAmount, 0.f, this->charMaxHp);
+
+}
+
 void UCharacterStatsComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (OtherActor->ActorHasTag("Enemy") && OtherActor != this->GetOwner())
@@ -66,6 +74,7 @@ void UCharacterStatsComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedCom
 		UGameplayStatics::ApplyDamage(OtherActor, this->weaponDamage, this->GetOwner()->GetInstigatorController(), this->GetOwner(), nullptr);
 	}
 }
+
 
 
 // Called every frame
