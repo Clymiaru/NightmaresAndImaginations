@@ -68,11 +68,26 @@ UFUNCTION(BlueprintCallable) void UCharacterStatsComponent::HealCharacter(float 
 
 void UCharacterStatsComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (OtherActor->ActorHasTag("Enemy") && OtherActor != this->GetOwner())
+	if (this->GetOwner()->ActorHasTag("Player"))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("I deal damage!! with name %s"), *OtherActor->GetName());
-		UGameplayStatics::ApplyDamage(OtherActor, this->weaponDamage, this->GetOwner()->GetInstigatorController(), this->GetOwner(), nullptr);
+		if (OtherActor->ActorHasTag("Enemy") && OtherActor != this->GetOwner())
+		{
+			//UE_LOG(LogTemp, Warning, TEXT("I deal damage!! with name %s"), *OtherActor->GetName());
+			UGameplayStatics::ApplyDamage(OtherActor, this->weaponDamage, this->GetOwner()->GetInstigatorController(), this->GetOwner(), nullptr);
+		}
 	}
+	
+	if (this->GetOwner()->ActorHasTag("Enemy"))
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("I am enemy"));
+		if (OtherActor->ActorHasTag("Player") && OtherActor != this->GetOwner())
+		{
+			UE_LOG(LogTemp, Warning, TEXT("I am enemy"));
+			//UE_LOG(LogTemp, Warning, TEXT("I deal damage!! with name %s"), *OtherActor->GetName());
+			UGameplayStatics::ApplyDamage(OtherActor, this->weaponDamage, this->GetOwner()->GetInstigatorController(), this->GetOwner(), nullptr);
+		}
+	}
+
 }
 
 

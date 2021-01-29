@@ -26,7 +26,7 @@ void AMainPlayerController::OnAttack()
 {
 	this->attacking = true;
 	FTimerHandle timeHandler;
-	GetWorld()->GetTimerManager().SetTimer(timeHandler, this, &AMainPlayerController::OnTimerEnd, 0.45f, false);
+	GetWorld()->GetTimerManager().SetTimer(timeHandler, this, &AMainPlayerController::OnTimerEnd, 0.5f, false);
 }
 
 void AMainPlayerController::OnTimerEnd()
