@@ -43521,6 +43521,8 @@
       <e p="README.md" t="Include" />
       <e p="Source" t="Include">
         <e p="GameProject" t="Include">
+          <e p="CharacterStatsComponent.cpp" t="Include" />
+          <e p="CharacterStatsComponent.h" t="Include" />
           <e p="GameProject.Build.cs" t="Include" />
           <e p="GameProject.cpp" t="Include" />
           <e p="GameProject.h" t="Include" />
@@ -43536,6 +43538,8 @@
             <e p="PickableItem.cpp" t="Include" />
             <e p="PickableItem.h" t="Include" />
           </e>
+          <e p="MainPlayerController.cpp" t="Include" />
+          <e p="MainPlayerController.h" t="Include" />
           <e p="test.cpp" t="Include" />
           <e p="test.h" t="Include" />
         </e>

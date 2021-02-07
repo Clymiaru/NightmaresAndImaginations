@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c5b97c-1590-49e4-a0fd-5b2cd63edbae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Items/Pickables/Test_PickItem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Items/Pickables/Test_PickItem.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Items/Pickables/HealthPickup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Items/Pickables/HealthPickup.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Levels/DreamWorld/DreamWorld.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/DreamWorld/DreamWorld.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,14 +20,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/Item.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/Item.cpp" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Source/GameProject/InventorySystem/Item.cpp" />
       <option value="$PROJECT_DIR$/Source/GameProject/InventorySystem/Item.h" />
-      <option value="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.h" />
       <option value="$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.cpp" />
-      <option value="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.cpp" />
       <option value="$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.h" />
+      <option value="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.cpp" />
+      <option value="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.h" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1nh91eiiHmnnzRsrrJcayCarrhy" />
@@ -169,6 +177,10 @@
       <workItem from="1611831300928" duration="1793000" />
       <workItem from="1611851095446" duration="1469000" />
       <workItem from="1611909678955" duration="4756000" />
+      <workItem from="1611929238592" duration="203000" />
+      <workItem from="1611930012657" duration="78000" />
+      <workItem from="1611930118656" duration="13000" />
+      <workItem from="1611930343096" duration="433000" />
     </task>
     <servers />
   </component>
