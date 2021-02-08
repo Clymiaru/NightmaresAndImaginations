@@ -43,6 +43,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Items")
 	TArray<AEquippableItem*> ArmorStorage;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Items")
+	TArray<AEquippableItem*> DefaultItems;
+
 private:
 	bool AddWeapon(AEquippableItem *item, int slot);
 	bool AddArmor(AEquippableItem *item, int slot);
