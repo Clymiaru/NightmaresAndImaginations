@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43c5b97c-1590-49e4-a0fd-5b2cd63edbae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Items/Pickables/HealthPickup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Items/Pickables/HealthPickup.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Levels/DreamWorld/DreamWorld.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/DreamWorld/DreamWorld.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +21,7 @@
     <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/EquippableItem.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/PickableItem.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/Item.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Engine/Classes/GameFramework/HUD.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/GameProject/InventorySystem/Item.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -181,6 +177,7 @@
       <workItem from="1611930012657" duration="78000" />
       <workItem from="1611930118656" duration="13000" />
       <workItem from="1611930343096" duration="433000" />
+      <workItem from="1612778630942" duration="234000" />
     </task>
     <servers />
   </component>
