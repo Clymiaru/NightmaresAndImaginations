@@ -27,7 +27,22 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnEquip();
 
+	UFUNCTION(BlueprintImplementableEvent)
+    void OnUnequip();
+
+	UFUNCTION(BlueprintCallable)
+    void Equip(UInventoryComponent* inventory);
+
+	UFUNCTION(BlueprintCallable)
+    void Unequip(UInventoryComponent* inventory);
+
+	inline bool HasStatsProcessed() { return hasStatsBeenProcessed; }
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
+	UTexture2D* Icon;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	FText Name;
@@ -36,16 +51,8 @@ public:
 	FText Description;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
-	UTexture2D* Icon;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	EquipmentType Type;
 
-	UFUNCTION(BlueprintImplementableEvent)
-	void OnEquip();
-
-	UFUNCTION(BlueprintCallable)
-    void Equip(UInventoryComponent* inventory);
-
-	virtual void Tick(float deltaTime) override;
+private:
+	bool hasStatsBeenProcessed;
 };

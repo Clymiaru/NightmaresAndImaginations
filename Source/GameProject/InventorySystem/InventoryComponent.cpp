@@ -1,56 +1,137 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "InventoryComponent.h"
+
+#include "EquippableItem.h"
 #include "Item.h"
 
-// Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = false;
-
-	// ...
-	
 }
 
-// Called when the game starts
 void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	for (auto& item : DefaultItems)
+	WeaponStorage.Reserve(WeaponCapacity);
+	for (int i = 0; i < WeaponCapacity; i++)
 	{
-		AddItem(item);
+		WeaponStorage[i] = nullptr;
+	}
+
+	ArmorStorage.Reserve(ArmorCapacity);
+	for (int i = 0; i < ArmorCapacity; i++)
+	{
+		ArmorStorage[i] = nullptr;
 	}
 }
 
- bool UInventoryComponent::AddItem(AItem *item)
+ bool UInventoryComponent::AddItem(AEquippableItem *item, int slot)
  {
- 	if (Items.Num() >= Capacity || item == nullptr)
+	if (item == nullptr)
+	{
+		return false;
+	}
+
+ 	switch (item->Type)
  	{
- 		return false;
+ 		case EquipmentType::Weapon:
+ 			AddWeapon(item, slot);
+ 			break;
+ 		case EquipmentType::Armor:
+ 			AddArmor(item, slot);
+ 			break;
+ 		default:
+ 			UE_LOG(LogActorComponent, Warning, TEXT("Item type undefined!"));
+ 			break;
  	}
 
- 	Items.Add(item);
-
- 	item->storedInInventory = this;
+	item->Equip(this);
 
  	OnInventoryUpdated.Broadcast();
 
  	return true;
 }
 
-bool UInventoryComponent::RemoveItem(AItem *item)
+bool UInventoryComponent::AddWeapon(AEquippableItem* item, int slot)
+{
+	if (slot >= WeaponCapacity ||
+		slot < 0 ||
+		item == nullptr)
+	{
+		return false;
+	}
+
+	if (WeaponStorage[slot] != nullptr)
+	{
+		RemoveItem(item, slot);
+	}
+
+	WeaponStorage[slot] = item;
+	return true;
+}
+
+bool UInventoryComponent::AddArmor(AEquippableItem* item, int slot)
+{
+	if (slot >= ArmorCapacity ||
+        slot < 0 ||
+        item == nullptr)
+	{
+		return false;
+	}
+
+	if (ArmorStorage[slot] != nullptr)
+	{
+		RemoveItem(item, slot);
+	}
+
+	ArmorStorage.Add(item);
+	return true;
+}
+
+bool UInventoryComponent::RemoveWeapon(AEquippableItem* item, int slot)
+{
+	if (item == nullptr)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool UInventoryComponent::RemoveArmor(AEquippableItem* item, int slot)
+{
+	if (item == nullptr)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool UInventoryComponent::RemoveItem(AEquippableItem *item, int slot)
  {
  	if (item == nullptr)
  	{
  		return false;
  	}
 
- 	item->storedInInventory = nullptr;
- 	Items.RemoveSingle(item);
+	switch (item->Type)
+	{
+ 	case EquipmentType::Weapon:
+ 		RemoveWeapon(item, slot);
+		break;
+ 	case EquipmentType::Armor:
+ 		RemoveArmor(item, slot);
+		break;
+ 	default:
+ 		UE_LOG(LogActorComponent, Warning, TEXT("Item type undefined!"));
+		break;
+	}
+
+ 	// item->storedInInventory = nullptr;
+ 	// Items.RemoveSingle(item);
  	OnInventoryUpdated.Broadcast();
     return true;
 }
