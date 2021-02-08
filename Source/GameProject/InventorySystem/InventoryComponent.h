@@ -4,11 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-
-class AItem;
-
 #include "InventoryComponent.generated.h"
 
+class AEquippableItem;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdated);
 
@@ -18,26 +16,40 @@ class GAMEPROJECT_API UInventoryComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this component's properties
 	UInventoryComponent();
 
 protected:
-	// Called when the game starts
 	virtual void BeginPlay() override;
 
 public:
-	bool AddItem(AItem* item);
-	bool RemoveItem(AItem* item);
+	UFUNCTION(BlueprintCallable)
+	bool AddItem(AEquippableItem* item, int slot);
 
-	UPROPERTY(EditAnywhere, Category = "Inventory")
-	TArray<AItem*> DefaultItems;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Inventory")
-	int32 Capacity;
+	UFUNCTION(BlueprintCallable)
+	bool RemoveItem(AEquippableItem* item, int slot);
 
 	UPROPERTY(BlueprintAssignable, Category = "Inventory")
 	FOnInventoryUpdated OnInventoryUpdated;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Inventory")
+	int32 WeaponCapacity;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Inventory")
+	int32 ArmorCapacity;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Items")
-	TArray<AItem*> Items;
+	TArray<AEquippableItem*> WeaponStorage;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Items")
+	TArray<AEquippableItem*> ArmorStorage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Items")
+	TArray<AEquippableItem*> DefaultItems;
+
+private:
+	bool AddWeapon(AEquippableItem *item, int slot);
+	bool AddArmor(AEquippableItem *item, int slot);
+
+	bool RemoveWeapon(AEquippableItem *item, int slot);
+	bool RemoveArmor(AEquippableItem *item, int slot);
 };
