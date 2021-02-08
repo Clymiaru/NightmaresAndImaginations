@@ -76,8 +76,7 @@ void UCharacterStatsComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedCom
 			UGameplayStatics::ApplyDamage(OtherActor, this->weaponDamage, this->GetOwner()->GetInstigatorController(), this->GetOwner(), nullptr);
 		}
 	}
-	
-	if (this->GetOwner()->ActorHasTag("Enemy"))
+	else if (this->GetOwner()->ActorHasTag("Enemy"))
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("I am enemy"));
 		if (OtherActor->ActorHasTag("Player") && OtherActor != this->GetOwner())
@@ -87,7 +86,6 @@ void UCharacterStatsComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedCom
 			UGameplayStatics::ApplyDamage(OtherActor, this->weaponDamage, this->GetOwner()->GetInstigatorController(), this->GetOwner(), nullptr);
 		}
 	}
-
 }
 
 
@@ -96,6 +94,7 @@ void UCharacterStatsComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedCom
 void UCharacterStatsComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
 	//UE_LOG(LogTemp, Warning, TEXT("%f hp!"), this->currHp);
 	// ...
 }
