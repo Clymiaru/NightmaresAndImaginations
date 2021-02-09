@@ -6,6 +6,8 @@
 AEquippableItem::AEquippableItem()
 {
 	PrimaryActorTick.bCanEverTick = false;
+
+	hasStatsBeenProcessed = false;
 }
 
 void AEquippableItem::BeginPlay()
@@ -18,12 +20,16 @@ void AEquippableItem::Equip(UInventoryComponent* inventory)
 	// Set reference to the player / pawn that can equip that will equip the item
 	// TODO: Stat modification
 
-	OnEquip();
+	if (!hasStatsBeenProcessed)
+	{
+		OnEquip();
+		hasStatsBeenProcessed = true;
+	}
 }
 
-void AEquippableItem::Tick(float deltaTime)
+void AEquippableItem::Unequip(UInventoryComponent* inventory)
 {
-	Super::Tick(deltaTime);
-
+	OnUnequip();
+	hasStatsBeenProcessed = false;
 }
 
